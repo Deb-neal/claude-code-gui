@@ -8,17 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClaudeModule = void 0;
 const common_1 = require("@nestjs/common");
-const claude_cli_service_1 = require("./infrastructure/claude-cli.service");
+const claude_api_service_1 = require("./infrastructure/claude-api.service");
 const claude_cli_service_interface_1 = require("./domain/interfaces/claude-cli.service.interface");
+const project_module_1 = require("../project/project.module");
 let ClaudeModule = class ClaudeModule {
 };
 exports.ClaudeModule = ClaudeModule;
 exports.ClaudeModule = ClaudeModule = __decorate([
     (0, common_1.Module)({
+        imports: [project_module_1.ProjectModule],
         providers: [
             {
                 provide: claude_cli_service_interface_1.CLAUDE_CLI_SERVICE,
-                useClass: claude_cli_service_1.ClaudeCliService,
+                useClass: claude_api_service_1.ClaudeApiService,
             },
         ],
         exports: [claude_cli_service_interface_1.CLAUDE_CLI_SERVICE],

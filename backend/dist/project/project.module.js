@@ -31,7 +31,7 @@ exports.ProjectModule = ProjectModule = __decorate([
                 useClass: file_system_service_1.FileSystemService,
             },
         ],
-        exports: [project_service_1.ProjectService],
+        exports: [project_service_1.ProjectService, file_system_service_interface_1.FILE_SYSTEM_SERVICE],
     })
 ], ProjectModule);
 //# sourceMappingURL=project.module.js.map

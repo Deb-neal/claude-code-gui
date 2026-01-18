@@ -29,6 +29,6 @@ import { FILE_SYSTEM_SERVICE } from './domain/interfaces/file-system.service.int
       useClass: FileSystemService,
     },
   ],
-  exports: [ProjectService],
+  exports: [ProjectService, FILE_SYSTEM_SERVICE],
 })
 export class ProjectModule {}

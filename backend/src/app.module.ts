@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SharedModule } from './shared/shared.module';
@@ -12,7 +13,15 @@ import { ChatModule } from './chat/chat.module';
  * Modular Monolith 아키텍처의 진입점
  */
 @Module({
-  imports: [SharedModule, ProjectModule, ClaudeModule, ChatModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    SharedModule,
+    ProjectModule,
+    ClaudeModule,
+    ChatModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
